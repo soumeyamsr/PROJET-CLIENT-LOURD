@@ -64,7 +64,6 @@ C'est la première chose qu'on voit au lancement. L'écran est sobre avec le log
 
 Quand on clique sur Se connecter, l'application vérifie les identifiants dans la table admin_users de la base de données. Le mot de passe est comparé avec bcrypt pour que ce soit sécurisé. Si les identifiants sont bons, on passe au tableau de bord. Sinon un message d'erreur s'affiche en rouge.
 
-[AJOUTER SCREENSHOT : Ecran de connexion]
 
 
 TABLEAU DE BORD
@@ -77,7 +76,6 @@ En dessous on a deux sections côte à côte. À gauche un tableau qui liste les
 
 Toutes ces données viennent directement de la base de données, donc c'est toujours à jour.
 
-[AJOUTER SCREENSHOT : Tableau de bord]
 
 
 GESTION DES UTILISATEURS
@@ -88,7 +86,6 @@ Il y a une barre de recherche en haut qui permet de filtrer par nom d'entreprise
 
 Quand on sélectionne un utilisateur dans le tableau, deux boutons apparaissent en bas. Le premier permet de marquer le compte comme vérifié, ce qui lui donne accès à toutes les fonctionnalités. Le deuxième permet de supprimer le compte définitivement, mais une confirmation est demandée avant de faire ça.
 
-[AJOUTER SCREENSHOT : Gestion des utilisateurs]
 
 
 VENTES FLASH
@@ -101,7 +98,6 @@ Les statuts possibles sont active pour une vente en cours, expired pour une vent
 
 Si on sélectionne une vente active, on peut l'annuler avec le bouton prévu. Un bouton Actualiser permet de recharger la liste pour voir les dernières ventes ajoutées.
 
-[AJOUTER SCREENSHOT : Ventes Flash]
 
 
 RESERVATIONS
@@ -112,7 +108,6 @@ Pour chaque réservation on voit : le numéro de la réservation, le titre de la
 
 Les statuts sont pending quand la réservation attend une confirmation, confirmed quand elle est validée, completed quand tout s'est bien passé, et cancelled quand elle a été annulée.
 
-[AJOUTER SCREENSHOT : Reservations]
 
 
 JOURNAL D'AUDIT
@@ -123,7 +118,6 @@ Chaque ligne du tableau montre la date et l'heure exacte de l'action, quel admin
 
 Toutes les actions importantes sont enregistrées automatiquement : les connexions et déconnexions des admins, les vérifications ou suppressions de comptes utilisateurs, les annulations de ventes flash, etc.
 
-[AJOUTER SCREENSHOT : Journal d'audit]
 
 
 ---------------------------------------------------------------
