@@ -30,9 +30,7 @@ Ensuite pour lancer l'application :
 
 Il y a aussi un fichier RUSHIFY Admin.bat sur le Bureau qui lance tout automatiquement en double-cliquant dessus, c'est plus pratique.
 
-Les identifiants de connexion admin :
-    Identifiant : superadmin
-    Mot de passe : Admin@Rushify2025
+Les identifiants de connexion sont transmis séparément à l'administrateur pour des raisons de sécurité. Ils ne sont pas stockés dans la documentation.
 
 
 ---------------------------------------------------------------
