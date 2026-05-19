@@ -1,261 +1,155 @@
-# Documentation – RUSHIFY Client Lourd
+Documentation - RUSHIFY Client Lourd
+Application de bureau d'administration
+Version 1.0 - Python 3.13 / tkinter / MySQL
 
-**Application de bureau d'administration RUSHIFY**  
-Version 1.0 | Technologies : Python 3.13 · tkinter · MySQL
 
----
+---------------------------------------------------------------
+PRESENTATION DU PROJET
+---------------------------------------------------------------
 
-## Sommaire
+Le client lourd RUSHIFY Admin est une application de bureau qui permet aux administrateurs de gérer toute la plateforme RUSHIFY directement depuis leur ordinateur. Contrairement au site web, cette application se connecte directement à la base de données MySQL sans passer par un navigateur ou un serveur web.
 
-1. [Présentation](#1-présentation)
-2. [Installation et lancement](#2-installation)
-3. [Structure du projet](#3-structure)
-4. [Écrans et fonctionnalités](#4-écrans)
-5. [Architecture technique](#5-architecture)
+L'idée c'est d'avoir un outil réservé aux admins, plus rapide à utiliser, qui fonctionne en local et qui permet de gérer les utilisateurs, les ventes flash et les réservations de façon simple et efficace.
 
----
 
-## 1. Présentation
+---------------------------------------------------------------
+INSTALLATION ET LANCEMENT
+---------------------------------------------------------------
 
-Le **client lourd RUSHIFY Admin** est une application de bureau native permettant aux administrateurs de gérer la plateforme RUSHIFY directement depuis leur machine, sans passer par un navigateur web.
+Ce qu'il faut avant de commencer :
+- Python 3.13 ou plus récent installé sur la machine
+- MySQL 8.4 avec la base rushify_db déjà créée et remplie
 
-**Avantages d'un client lourd :**
-- Fonctionne sans serveur web intermédiaire
-- Connexion directe à la base de données MySQL
-- Interface native Windows
-- Démarrage rapide
+Pour installer les dépendances nécessaires, ouvrir un terminal et taper :
 
----
+    pip install mysql-connector-python bcrypt
 
-## 2. Installation
+Ensuite pour lancer l'application :
 
-### Prérequis
-- Python 3.13+
-- MySQL 8.4 avec la base `rushify_db`
+    python app.py
 
-### Installation des dépendances
+Il y a aussi un fichier RUSHIFY Admin.bat sur le Bureau qui lance tout automatiquement en double-cliquant dessus, c'est plus pratique.
 
-```bash
-pip install mysql-connector-python bcrypt
-```
+Les identifiants de connexion admin :
+    Identifiant : superadmin
+    Mot de passe : Admin@Rushify2025
 
-### Lancement
 
-```bash
-python app.py
-```
+---------------------------------------------------------------
+STRUCTURE DU PROJET
+---------------------------------------------------------------
 
-Ou double-cliquer sur **`RUSHIFY Admin.bat`** sur le Bureau.
+Le projet est volontairement simple, tout est dans un seul fichier app.py pour faciliter la maintenance et la compréhension.
 
-### Identifiants
+    rushify-admin-python/
+        app.py           -> tout le code de l'application
+        README.md        -> guide de démarrage rapide
+        DOCUMENTATION.md -> ce fichier
 
-| Champ | Valeur |
-|---|---|
-| Identifiant | `superadmin` |
-| Mot de passe | `Admin@Rushify2025` |
+Dans app.py on trouve plusieurs classes qui gèrent chaque partie :
+- LoginWindow s'occupe de la fenêtre de connexion
+- AdminApp gère la fenêtre principale avec le menu latéral
+- Les fonctions show_dashboard, show_users, etc. gèrent chaque page
+- La fonction query() centralise tous les appels à la base de données
 
----
 
-## 3. Structure du projet
+---------------------------------------------------------------
+LES DIFFERENTS ECRANS
+---------------------------------------------------------------
 
-```
-rushify-admin-python/
-├── app.py           → Application complète (point d'entrée)
-├── README.md        → Guide rapide
-└── DOCUMENTATION.md → Documentation complète
-```
 
-L'application est contenue dans un seul fichier `app.py` organisé en classes :
+ECRAN DE CONNEXION
 
-| Classe | Rôle |
-|---|---|
-| `LoginWindow` | Fenêtre de connexion |
-| `AdminApp` | Fenêtre principale avec sidebar |
-| Fonctions `show_*` | Affichage de chaque page |
-| `query()` | Fonction utilitaire requêtes SQL |
+C'est la première chose qu'on voit au lancement. L'écran est sobre avec le logo RUSHIFY, deux champs pour entrer l'identifiant et le mot de passe, et un bouton pour se connecter.
 
----
+Quand on clique sur Se connecter, l'application vérifie les identifiants dans la table admin_users de la base de données. Le mot de passe est comparé avec bcrypt pour que ce soit sécurisé. Si les identifiants sont bons, on passe au tableau de bord. Sinon un message d'erreur s'affiche en rouge.
 
-## 4. Écrans
+[AJOUTER SCREENSHOT : Ecran de connexion]
 
-### 4.1 Écran de connexion
 
-La fenêtre s'ouvre au lancement de l'application.
+TABLEAU DE BORD
 
-**Composants :**
-- Logo RUSHIFY (éclair bordeaux + texte)
-- Champ **Identifiant**
-- Champ **Mot de passe** (masqué)
-- Bouton **Se connecter** (bordeaux)
-- Message d'erreur si identifiants incorrects
+C'est la page principale une fois connecté. Elle donne une vue d'ensemble rapide de ce qui se passe sur la plateforme.
 
-**Authentification :**
-- Requête SQL sur la table `admin_users`
-- Vérification du mot de passe avec **bcrypt**
-- Mise à jour de `last_login_at` à chaque connexion
+En haut on a quatre cartes qui montrent les chiffres clés : le nombre d'utilisateurs inscrits, combien de ventes flash sont actives en ce moment, le total des réservations et les revenus générés sur la plateforme.
 
-📸 *[Screenshot : Écran de connexion]*
+En dessous on a deux sections côte à côte. À gauche un tableau qui liste les meilleurs vendeurs avec leur nombre de ventes flash et leurs revenus. À droite une liste des dernières personnes qui se sont inscrites sur la plateforme.
 
----
+Toutes ces données viennent directement de la base de données, donc c'est toujours à jour.
 
-### 4.2 Tableau de bord
+[AJOUTER SCREENSHOT : Tableau de bord]
 
-Première page après connexion. Affiche une vue d'ensemble de RUSHIFY.
 
-**Composants :**
-- **4 cartes KPI** (fond coloré) :
-  - 👥 Nombre total d'utilisateurs
-  - ⚡ Ventes flash actives / total
-  - 🛒 Nombre de réservations
-  - 💶 Revenus totaux en €
-- **Tableau "Top vendeurs"** : entreprise, nombre de flash sales, revenus
-- **Liste "Dernières inscriptions"** : nom + email + date
+GESTION DES UTILISATEURS
 
-**Source de données :** Vue SQL `vw_dashboard_stats` + requêtes dédiées.
+Cette page permet de voir et gérer tous les comptes professionnels inscrits sur RUSHIFY.
 
-📸 *[Screenshot : Tableau de bord]*
+Il y a une barre de recherche en haut qui permet de filtrer par nom d'entreprise, email ou numéro SIRET. En dessous un grand tableau liste tous les utilisateurs avec leurs informations : leur identifiant, le nom de leur entreprise, leur email, leur SIRET, le nombre de produits qu'ils ont en stock, le nombre de ventes flash qu'ils ont créées, si leur compte est vérifié ou non, et la date à laquelle ils se sont inscrits.
 
----
+Quand on sélectionne un utilisateur dans le tableau, deux boutons apparaissent en bas. Le premier permet de marquer le compte comme vérifié, ce qui lui donne accès à toutes les fonctionnalités. Le deuxième permet de supprimer le compte définitivement, mais une confirmation est demandée avant de faire ça.
 
-### 4.3 Gestion des utilisateurs
+[AJOUTER SCREENSHOT : Gestion des utilisateurs]
 
-Liste paginée de tous les comptes professionnels inscrits.
 
-**Composants :**
-- **Barre de recherche** : filtre par nom, email ou SIRET
-- **Tableau interactif** (ttk.Treeview) avec colonnes :
-  - ID, Entreprise, Email, SIRET, Nb produits, Nb ventes, Vérifié, Inscription
-- **Boutons d'action** sur la sélection :
-  - ✅ **Vérifier** : marque le compte comme vérifié (`is_verified=1`)
-  - 🗑️ **Supprimer** : supprime définitivement le compte (avec confirmation)
+VENTES FLASH
 
-📸 *[Screenshot : Gestion utilisateurs]*
+Cette page liste toutes les ventes flash qui existent sur la plateforme, peu importe leur statut.
 
----
+Le tableau affiche pour chaque vente : son identifiant, son titre, qui l'a publiée, le prix flash, le statut actuel et la date d'expiration.
 
-### 4.4 Ventes Flash
+Les statuts possibles sont active pour une vente en cours, expired pour une vente qui a atteint sa date limite, cancelled pour une vente annulée par un admin, et sold_out pour une vente dont le stock est épuisé.
 
-Liste de toutes les ventes flash avec gestion.
+Si on sélectionne une vente active, on peut l'annuler avec le bouton prévu. Un bouton Actualiser permet de recharger la liste pour voir les dernières ventes ajoutées.
 
-**Composants :**
-- **Tableau** avec : ID, Titre, Vendeur, Prix flash, Statut, Date d'expiration
-- **Boutons d'action** :
-  - 🚫 **Annuler** : passe le statut à `cancelled` (si la vente est active)
-  - ↻ **Actualiser** : recharge les données en temps réel
+[AJOUTER SCREENSHOT : Ventes Flash]
 
-**Statuts gérés :**
-- `active` : en cours
-- `expired` : expirée naturellement
-- `cancelled` : annulée par l'admin
-- `sold_out` : épuisée
 
-📸 *[Screenshot : Ventes Flash]*
+RESERVATIONS
 
----
+Cette page donne accès à l'historique complet de toutes les réservations faites sur la plateforme.
 
-### 4.5 Réservations
+Pour chaque réservation on voit : le numéro de la réservation, le titre de la vente flash concernée, le nom de l'acheteur, le nom du vendeur, la quantité réservée, le montant total payé, le statut et la date.
 
-Historique complet de toutes les réservations de la plateforme.
+Les statuts sont pending quand la réservation attend une confirmation, confirmed quand elle est validée, completed quand tout s'est bien passé, et cancelled quand elle a été annulée.
 
-**Colonnes affichées :**
-- ID, Titre de la vente, Acheteur, Vendeur, Quantité, Total (€), Statut, Date
+[AJOUTER SCREENSHOT : Reservations]
 
-**Statuts :**
-- `pending` : en attente de confirmation
-- `confirmed` : confirmée
-- `completed` : finalisée
-- `cancelled` : annulée
 
-📸 *[Screenshot : Réservations]*
+JOURNAL D'AUDIT
 
----
+Cette page est là pour garder une trace de tout ce que font les admins sur l'application. C'est important pour savoir qui a fait quoi et quand.
 
-### 4.6 Journal d'audit
+Chaque ligne du tableau montre la date et l'heure exacte de l'action, quel admin l'a faite, le type d'action (connexion, modification, suppression, création), sur quelle ressource ça a été fait, et une courte description.
 
-Traçabilité de toutes les actions effectuées par les administrateurs.
+Toutes les actions importantes sont enregistrées automatiquement : les connexions et déconnexions des admins, les vérifications ou suppressions de comptes utilisateurs, les annulations de ventes flash, etc.
 
-**Colonnes :**
-- Date/Heure, Admin, Action, Ressource, Description
+[AJOUTER SCREENSHOT : Journal d'audit]
 
-**Types d'actions enregistrées :**
-| Action | Description |
-|---|---|
-| `LOGIN` | Connexion d'un admin |
-| `LOGOUT` | Déconnexion |
-| `UPDATE` | Modification d'une ressource |
-| `DELETE` | Suppression |
-| `CREATE` | Création |
 
-📸 *[Screenshot : Journal d'audit]*
+---------------------------------------------------------------
+COMMENT CA MARCHE TECHNIQUEMENT
+---------------------------------------------------------------
 
----
+La connexion à la base de données se fait avec mysql-connector-python. Chaque fois qu'on a besoin de données, la fonction query() ouvre une connexion, fait la requête et referme la connexion. C'est simple et ça évite de garder des connexions ouvertes inutilement.
 
-## 5. Architecture technique
+Pour les mots de passe, on utilise la bibliothèque bcrypt qui est le standard pour stocker des mots de passe de façon sécurisée. Quand l'admin se connecte, bcrypt compare le mot de passe entré avec le hash stocké en base sans jamais stocker le vrai mot de passe en clair.
 
-### Connexion à la base de données
+L'interface graphique est faite avec tkinter qui est la bibliothèque graphique intégrée à Python. Les tableaux utilisent ttk.Treeview qui permet d'afficher des données en lignes et colonnes avec la possibilité de sélectionner et d'interagir avec les éléments.
 
-```python
-DB_CONFIG = {
-    'host': 'localhost',
-    'port': 3306,
-    'user': 'root',
-    'password': '',
-    'database': 'rushify_db',
-    'charset': 'utf8mb4'
-}
-```
+La palette de couleurs choisie : vert foncé (#1E3528) pour le menu latéral, bordeaux (#8B1A2F) pour les boutons et accents, blanc pour les cartes de contenu et gris clair (#F5F5F5) pour le fond général.
 
-Chaque requête ouvre et ferme une connexion (pool simple) via la fonction `query()` :
 
-```python
-def query(sql, params=None, fetch=True):
-    conn = mysql.connector.connect(**DB_CONFIG)
-    cur = conn.cursor(dictionary=True)
-    cur.execute(sql, params or ())
-    if fetch:
-        result = cur.fetchall()
-    else:
-        conn.commit()
-    conn.close()
-    return result
-```
+---------------------------------------------------------------
+LIEN AVEC LE SITE WEB
+---------------------------------------------------------------
 
-### Authentification
+Le client lourd et le site web RUSHIFY utilisent exactement la même base de données. Donc tout ce qu'un admin fait dans cette application (vérifier un utilisateur, annuler une vente flash) est visible immédiatement sur le site web, et inversement.
 
-```python
-import bcrypt
-ok = bcrypt.checkpw(
-    password.encode('utf-8'),
-    admin['password_hash'].encode('utf-8')
-)
-```
+Les deux projets sont complémentaires : le site web est l'interface pour les utilisateurs, et cette application est l'outil de gestion pour les administrateurs.
 
-### Interface graphique (tkinter)
+Site web (client léger) : https://github.com/soumeyamsr/PROJET-CLIENT-L-GER-
 
-- **`tk.Tk()`** : fenêtre principale
-- **`ttk.Treeview`** : tableaux de données interactifs
-- **`tk.Frame`** : organisation en sections
-- **`ttk.Style`** : personnalisation des couleurs et polices
 
-### Palette de couleurs
-
-| Variable | Valeur | Usage |
-|---|---|---|
-| `BORDEAUX` | `#8B1A2F` | Boutons, accents |
-| `BG` | `#1E3528` | Fond sidebar |
-| `CARD` | `#FFFFFF` | Fond des cartes |
-| `CARD_BG` | `#F5F5F5` | Fond de l'application |
-
----
-
-## Lien avec le client léger
-
-Le client lourd et le client léger **partagent la même base de données** `rushify_db`.
-
-Toute action faite dans le client lourd (vérifier un utilisateur, annuler une vente) est **immédiatement reflétée** sur le site web, et vice-versa.
-
-→ **Client léger** : https://github.com/soumeyamsr/PROJET-CLIENT-L-GER-
-
----
-
-*Documentation RUSHIFY Client Lourd v1.0 — Projet académique EFREI*
+---------------------------------------------------------------
+Documentation RUSHIFY Client Lourd v1.0 - Projet académique EFREI
+---------------------------------------------------------------
