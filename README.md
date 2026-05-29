@@ -5,11 +5,11 @@ Développée en **Python 3.13 + tkinter + MySQL**.
 
 ## Fonctionnalités
 
-- 📊 **Tableau de bord** — KPIs en temps réel, top vendeurs, dernières inscriptions
-- 👥 **Gestion utilisateurs** — Recherche, vérification SIRET, suspension, suppression
-- ⚡ **Ventes Flash** — Liste complète, annulation
-- 🛒 **Réservations** — Historique de toutes les réservations
-- 📋 **Journal d'audit** — Traçabilité de toutes les actions admin
+- **Tableau de bord** — KPIs en temps réel, top vendeurs, dernières inscriptions
+- **Gestion utilisateurs** — Recherche, vérification SIRET, suspension, suppression
+- **Ventes Flash** — Liste complète, annulation
+- **Réservations** — Historique de toutes les réservations
+- **Journal d'audit** — Traçabilité de toutes les actions admin
 
 ## Prérequis
 
