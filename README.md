@@ -31,9 +31,7 @@ python app.py
 
 ## Connexion
 
-| Identifiant | Mot de passe |
-|---|---|
-| `superadmin` | `Admin@Rushify2025` |
+Les identifiants de connexion sont transmis séparément à l'administrateur pour des raisons de sécurité.
 
 ## Technologies
 
