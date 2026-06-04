@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 770" width="1500" height="770">
+<defs>
+  <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#aaa"/></marker>
+  <marker id="arr-g" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#27ae60"/></marker>
+  <marker id="arr-r" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#c0392b"/></marker>
+  <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+    <feDropShadow dx="3" dy="3" stdDeviation="4" flood-color="#00000020"/>
+  </filter>
+</defs>
+
+<!-- Fond général -->
+<rect width="1500" height="770" fill="#EEF0F3"/>
+
+<!-- Section utilisateurs -->
+<rect x="8" y="8" width="910" height="752" rx="12" fill="white" stroke="#CBD5E1" stroke-width="1.5"/>
+<text x="463" y="30" text-anchor="middle" fill="#1E6B47" font-family="Arial,sans-serif" font-size="11" font-weight="bold" opacity="0.7">● TABLES UTILISATEURS</text>
+
+<!-- Section admin -->
+<rect x="935" y="8" width="557" height="752" rx="12" fill="white" stroke="#CBD5E1" stroke-width="1.5"/>
+<text x="1213" y="30" text-anchor="middle" fill="#8B1A2F" font-family="Arial,sans-serif" font-size="11" font-weight="bold" opacity="0.7">● TABLES ADMINISTRATION</text>
+
+<!-- Séparateur -->
+<line x1="923" y1="8" x2="923" y2="760" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="6,4"/>
+
+<!-- ═══════════ CONNEXIONS ═══════════ -->
+
+<!-- USERS → PRODUCTS (user_id) -->
+<path d="M 360,196 C 300,196 155,300 155,380" fill="none" stroke="#27ae60" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#arr-g)"/>
+<text x="230" y="288" text-anchor="middle" fill="#27ae60" font-family="Arial,sans-serif" font-size="9">user_id</text>
+
+<!-- USERS → FLASH_SALES (seller_id) -->
+<path d="M 475,308 C 475,344 430,360 430,380" fill="none" stroke="#27ae60" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#arr-g)"/>
+<text x="500" y="345" fill="#27ae60" font-family="Arial,sans-serif" font-size="9">seller_id</text>
+
+<!-- USERS → NOTIFICATIONS (user_id) -->
+<path d="M 590,160 C 625,160 660,150 660,148" fill="none" stroke="#27ae60" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#arr-g)"/>
+<text x="622" y="154" text-anchor="middle" fill="#27ae60" font-family="Arial,sans-serif" font-size="9">user_id</text>
+
+<!-- USERS → RESERVATIONS (buyer_id) -->
+<path d="M 590,200 C 680,200 775,300 775,380" fill="none" stroke="#27ae60" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#arr-g)"/>
+<text x="710" y="280" fill="#27ae60" font-family="Arial,sans-serif" font-size="9">buyer_id</text>
+
+<!-- PRODUCTS → FLASH_SALES (product_id) -->
+<path d="M 250,522 C 282,522 315,530 315,543" fill="none" stroke="#7f8c8d" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+<text x="268" y="516" text-anchor="middle" fill="#7f8c8d" font-family="Arial,sans-serif" font-size="9">product_id</text>
+
+<!-- FLASH_SALES → RESERVATIONS (flash_sale_id) -->
+<path d="M 545,543 C 600,543 660,500 660,490" fill="none" stroke="#7f8c8d" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+<text x="600" y="536" text-anchor="middle" fill="#7f8c8d" font-family="Arial,sans-serif" font-size="9">flash_sale_id</text>
+
+<!-- ADMIN_ROLES → ADMIN_USERS (role_id) -->
+<path d="M 1075,119 L 1075,220" fill="none" stroke="#c0392b" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#arr-r)"/>
+<text x="1085" y="175" fill="#c0392b" font-family="Arial,sans-serif" font-size="9">role_id</text>
+
+<!-- ADMIN_ROLES → ADMIN_PERMISSIONS (role_id) -->
+<path d="M 1190,82 C 1215,82 1240,88 1240,92" fill="none" stroke="#c0392b" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#arr-r)"/>
+<text x="1213" y="76" text-anchor="middle" fill="#c0392b" font-family="Arial,sans-serif" font-size="9">role_id</text>
+
+<!-- ADMIN_USERS → ADMIN_AUDIT_LOG (admin_id) -->
+<path d="M 1190,288 C 1215,288 1240,296 1240,299" fill="none" stroke="#c0392b" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#arr-r)"/>
+<text x="1213" y="282" text-anchor="middle" fill="#c0392b" font-family="Arial,sans-serif" font-size="9">admin_id</text>
+
+<!-- ═══════════ TABLE USERS ═══════════ -->
+<g filter="url(#shadow)">
+<rect x="360" y="45" width="230" height="263" rx="7" fill="white" stroke="#D1D5DB" stroke-width="1.2"/>
+<rect x="360" y="45" width="230" height="32" rx="7" fill="#1E6B47"/>
+<rect x="360" y="65" width="230" height="12" fill="#1E6B47"/>
+<text x="475" y="66" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="12" font-weight="bold">USERS</text>
+<!-- rows -->
+<rect x="361" y="77" width="228" height="21" fill="#fafafa"/>
+<rect x="361" y="77" width="18" height="13" rx="2" fill="#FEF9C3" transform="translate(7,4)"/>
+<text x="375" y="90" text-anchor="middle" fill="#92400E" font-family="monospace" font-size="8" font-weight="bold">PK</text>
+<text x="391" y="90" fill="#111" font-family="Arial,sans-serif" font-size="10.5">id</text>
+<text x="583" y="90" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">INT</text>
+<line x1="361" y1="98" x2="589" y2="98" stroke="#ececec"/>
+<text x="369" y="111" fill="#111" font-family="Arial,sans-serif" font-size="10.5">company_name</text>
+<text x="583" y="111" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">VARCHAR</text>
+<rect x="361" y="119" width="228" height="21" fill="#fafafa"/>
+<line x1="361" y1="119" x2="589" y2="119" stroke="#ececec"/>
+<text x="369" y="132" fill="#111" font-family="Arial,sans-serif" font-size="10.5">full_name</text>
+<text x="583" y="132" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">VARCHAR</text>
+<line x1="361" y1="140" x2="589" y2="140" stroke="#ececec"/>
+<text x="369" y="153" fill="#111" font-family="Arial,sans-serif" font-size="10.5">address</text>
+<text x="583" y="153" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">TEXT</text>
+<rect x="361" y="161" width="228" height="21" fill="#fafafa"/>
+<line x1="361" y1="161" x2="589" y2="161" stroke="#ececec"/>
+<rect x="368" y="165" width="18" height="13" rx="2" fill="#F3E8FF"/>
+<text x="377" y="175" text-anchor="middle" fill="#6B21A8" font-family="monospace" font-size="8" font-weight="bold">UQ</text>
+<text x="391" y="175" fill="#111" font-family="Arial,sans-serif" font-size="10.5">siret</text>
+<text x="583" y="175" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">VARCHAR(14)</text>
+<line x1="361" y1="182" x2="589" y2="182" stroke="#ececec"/>
+<text x="369" y="195" fill="#111" font-family="Arial,sans-serif" font-size="10.5">phone</text>
+<text x="583" y="195" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">VARCHAR</text>
+<rect x="361" y="203" width="228" height="21" fill="#fafafa"/>
+<line x1="361" y1="203" x2="589" y2="203" stroke="#ececec"/>
+<rect x="368" y="207" width="18" height="13" rx="2" fill="#F3E8FF"/>
+<text x="377" y="217" text-anchor="middle" fill="#6B21A8" font-family="monospace" font-size="8" font-weight="bold">UQ</text>
+<text x="391" y="217" fill="#111" font-family="Arial,sans-serif" font-size="10.5">email</text>
+<text x="583" y="217" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">VARCHAR</text>
+<line x1="361" y1="224" x2="589" y2="224" stroke="#ececec"/>
+<text x="369" y="237" fill="#111" font-family="Arial,sans-serif" font-size="10.5">password</text>
+<text x="583" y="237" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">VARCHAR</text>
+<rect x="361" y="245" width="228" height="21" fill="#fafafa"/>
+<line x1="361" y1="245" x2="589" y2="245" stroke="#ececec"/>
+<text x="369" y="258" fill="#111" font-family="Arial,sans-serif" font-size="10.5">is_verified</text>
+<text x="583" y="258" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">TINYINT</text>
+<line x1="361" y1="266" x2="589" y2="266" stroke="#ececec"/>
+<text x="369" y="279" fill="#111" font-family="Arial,sans-serif" font-size="10.5">cgv_accepted</text>
+<text x="583" y="279" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">TINYINT</text>
+<rect x="361" y="287" width="228" height="21" fill="#fafafa"/>
+<line x1="361" y1="287" x2="589" y2="287" stroke="#ececec"/>
+<text x="369" y="300" fill="#111" font-family="Arial,sans-serif" font-size="10.5">created_at</text>
+<text x="583" y="300" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">TIMESTAMP</text>
+</g>
+
+<!-- ═══════════ TABLE NOTIFICATIONS ═══════════ -->
+<g filter="url(#shadow)">
+<rect x="660" y="45" width="230" height="200" rx="7" fill="white" stroke="#D1D5DB" stroke-width="1.2"/>
+<rect x="660" y="45" width="230" height="32" rx="7" fill="#1E6B47"/>
+<rect x="660" y="65" width="230" height="12" fill="#1E6B47"/>
+<text x="775" y="66" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="12" font-weight="bold">NOTIFICATIONS</text>
+<rect x="661" y="77" width="228" height="21" fill="#fafafa"/>
+<rect x="668" y="81" width="18" height="13" rx="2" fill="#FEF9C3"/>
+<text x="677" y="91" text-anchor="middle" fill="#92400E" font-family="monospace" font-size="8" font-weight="bold">PK</text>
+<text x="691" y="91" fill="#111" font-family="Arial,sans-serif" font-size="10.5">id</text>
+<text x="883" y="91" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">INT</text>
+<line x1="661" y1="98" x2="889" y2="98" stroke="#ececec"/>
+<rect x="668" y="102" width="18" height="13" rx="2" fill="#DBEAFE"/>
+<text x="677" y="112" text-anchor="middle" fill="#1E40AF" font-family="monospace" font-size="8" font-weight="bold">FK</text>
+<text x="691" y="112" fill="#111" font-family="Arial,sans-serif" font-size="10.5">user_id</text>
+<text x="883" y="112" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">INT</text>
+<rect x="661" y="119" width="228" height="21" fill="#fafafa"/>
+<line x1="661" y1="119" x2="889" y2="119" stroke="#ececec"/>
+<text x="669" y="132" fill="#111" font-family="Arial,sans-serif" font-size="10.5">title</text>
+<text x="883" y="132" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">VARCHAR</text>
+<line x1="661" y1="140" x2="889" y2="140" stroke="#ececec"/>
+<text x="669" y="153" fill="#111" font-family="Arial,sans-serif" font-size="10.5">message</text>
+<text x="883" y="153" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">TEXT</text>
+<rect x="661" y="161" width="228" height="21" fill="#fafafa"/>
+<line x1="661" y1="161" x2="889" y2="161" stroke="#ececec"/>
+<text x="669" y="174" fill="#111" font-family="Arial,sans-serif" font-size="10.5">type</text>
+<text x="883" y="174" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">ENUM</text>
+<line x1="661" y1="182" x2="889" y2="182" stroke="#ececec"/>
+<text x="669" y="195" fill="#111" font-family="Arial,sans-serif" font-size="10.5">is_read</text>
+<text x="883" y="195" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">TINYINT</text>
+<rect x="661" y="203" width="228" height="21" fill="#fafafa"/>
+<line x1="661" y1="203" x2="889" y2="203" stroke="#ececec"/>
+<text x="669" y="216" fill="#111" font-family="Arial,sans-serif" font-size="10.5">created_at</text>
+<text x="883" y="216" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">TIMESTAMP</text>
+</g>
+
+<!-- ═══════════ TABLE PRODUCTS ═══════════ -->
+<g filter="url(#shadow)">
+<rect x="20" y="380" width="230" height="284" rx="7" fill="white" stroke="#D1D5DB" stroke-width="1.2"/>
+<rect x="20" y="380" width="230" height="32" rx="7" fill="#1E6B47"/>
+<rect x="20" y="400" width="230" height="12" fill="#1E6B47"/>
+<text x="135" y="401" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="12" font-weight="bold">PRODUCTS</text>
+<rect x="21" y="412" width="228" height="21" fill="#fafafa"/>
+<rect x="28" y="416" width="18" height="13" rx="2" fill="#FEF9C3"/>
+<text x="37" y="426" text-anchor="middle" fill="#92400E" font-family="monospace" font-size="8" font-weight="bold">PK</text>
+<text x="51" y="426" fill="#111" font-family="Arial,sans-serif" font-size="10.5">id</text>
+<text x="243" y="426" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">INT</text>
+<line x1="21" y1="433" x2="249" y2="433" stroke="#ececec"/>
+<rect x="28" y="437" width="18" height="13" rx="2" fill="#DBEAFE"/>
+<text x="37" y="447" text-anchor="middle" fill="#1E40AF" font-family="monospace" font-size="8" font-weight="bold">FK</text>
+<text x="51" y="447" fill="#111" font-family="Arial,sans-serif" font-size="10.5">user_id</text>
+<text x="243" y="447" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">INT</text>
+<rect x="21" y="454" width="228" height="21" fill="#fafafa"/>
+<line x1="21" y1="454" x2="249" y2="454" stroke="#ececec"/>
+<text x="29" y="467" fill="#111" font-family="Arial,sans-serif" font-size="10.5">name</text>
+<text x="243" y="467" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">VARCHAR</text>
+<line x1="21" y1="475" x2="249" y2="475" stroke="#ececec"/>
+<text x="29" y="488" fill="#111" font-family="Arial,sans-serif" font-size="10.5">description</text>
+<text x="243" y="488" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">TEXT</text>
+<rect x="21" y="496" width="228" height="21" fill="#fafafa"/>
+<line x1="21" y1="496" x2="249" y2="496" stroke="#ececec"/>
+<text x="29" y="509" fill="#111" font-family="Arial,sans-serif" font-size="10.5">category</text>
+<text x="243" y="509" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">VARCHAR</text>
+<line x1="21" y1="517" x2="249" y2="517" stroke="#ececec"/>
+<text x="29" y="530" fill="#111" font-family="Arial,sans-serif" font-size="10.5">unit</text>
+<text x="243" y="530" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">VARCHAR</text>
+<rect x="21" y="538" width="228" height="21" fill="#fafafa"/>
+<line x1="21" y1="538" x2="249" y2="538" stroke="#ececec"/>
+<text x="29" y="551" fill="#111" font-family="Arial,sans-serif" font-size="10.5">quantity</text>
+<text x="243" y="551" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">DECIMAL</text>
+<line x1="21" y1="559" x2="249" y2="559" stroke="#ececec"/>
+<text x="29" y="572" fill="#111" font-family="Arial,sans-serif" font-size="10.5">price</text>
+<text x="243" y="572" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">DECIMAL</text>
+<rect x="21" y="580" width="228" height="21" fill="#fafafa"/>
+<line x1="21" y1="580" x2="249" y2="580" stroke="#ececec"/>
+<text x="29" y="593" fill="#111" font-family="Arial,sans-serif" font-size="10.5">image</text>
+<text x="243" y="593" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">VARCHAR</text>
+<line x1="21" y1="601" x2="249" y2="601" stroke="#ececec"/>
+<text x="29" y="614" fill="#111" font-family="Arial,sans-serif" font-size="10.5">expiry_date</text>
+<text x="243" y="614" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">DATE</text>
+<rect x="21" y="622" width="228" height="21" fill="#fafafa"/>
+<line x1="21" y1="622" x2="249" y2="622" stroke="#ececec"/>
+<text x="29" y="635" fill="#111" font-family="Arial,sans-serif" font-size="10.5">ai_confidence</text>
+<text x="243" y="635" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">FLOAT</text>
+<line x1="21" y1="643" x2="249" y2="643" stroke="#ececec"/>
+<text x="29" y="656" fill="#111" font-family="Arial,sans-serif" font-size="10.5">created_at</text>
+<text x="243" y="656" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">TIMESTAMP</text>
+</g>
+
+<!-- ═══════════ TABLE FLASH_SALES ═══════════ -->
+<g filter="url(#shadow)">
+<rect x="315" y="380" width="230" height="326" rx="7" fill="white" stroke="#D1D5DB" stroke-width="1.2"/>
+<rect x="315" y="380" width="230" height="32" rx="7" fill="#1E6B47"/>
+<rect x="315" y="400" width="230" height="12" fill="#1E6B47"/>
+<text x="430" y="401" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="12" font-weight="bold">FLASH_SALES</text>
+<rect x="316" y="412" width="228" height="21" fill="#fafafa"/>
+<rect x="323" y="416" width="18" height="13" rx="2" fill="#FEF9C3"/>
+<text x="332" y="426" text-anchor="middle" fill="#92400E" font-family="monospace" font-size="8" font-weight="bold">PK</text>
+<text x="346" y="426" fill="#111" font-family="Arial,sans-serif" font-size="10.5">id</text>
+<text x="538" y="426" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">INT</text>
+<line x1="316" y1="433" x2="544" y2="433" stroke="#ececec"/>
+<rect x="323" y="437" width="18" height="13" rx="2" fill="#DBEAFE"/>
+<text x="332" y="447" text-anchor="middle" fill="#1E40AF" font-family="monospace" font-size="8" font-weight="bold">FK</text>
+<text x="346" y="447" fill="#111" font-family="Arial,sans-serif" font-size="10.5">seller_id</text>
+<text x="538" y="447" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">INT</text>
+<rect x="316" y="454" width="228" height="21" fill="#fafafa"/>
+<line x1="316" y1="454" x2="544" y2="454" stroke="#ececec"/>
+<rect x="323" y="458" width="18" height="13" rx="2" fill="#DBEAFE"/>
+<text x="332" y="468" text-anchor="middle" fill="#1E40AF" font-family="monospace" font-size="8" font-weight="bold">FK</text>
+<text x="346" y="468" fill="#111" font-family="Arial,sans-serif" font-size="10.5">product_id</text>
+<text x="538" y="468" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">INT</text>
+<line x1="316" y1="475" x2="544" y2="475" stroke="#ececec"/>
+<text x="324" y="488" fill="#111" font-family="Arial,sans-serif" font-size="10.5">title</text>
+<text x="538" y="488" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">VARCHAR</text>
+<rect x="316" y="496" width="228" height="21" fill="#fafafa"/>
+<line x1="316" y1="496" x2="544" y2="496" stroke="#ececec"/>
+<text x="324" y="509" fill="#111" font-family="Arial,sans-serif" font-size="10.5">original_price</text>
+<text x="538" y="509" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">DECIMAL</text>
+<line x1="316" y1="517" x2="544" y2="517" stroke="#ececec"/>
+<text x="324" y="530" fill="#111" font-family="Arial,sans-serif" font-size="10.5">flash_price</text>
+<text x="538" y="530" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">DECIMAL</text>
+<rect x="316" y="538" width="228" height="21" fill="#fafafa"/>
+<line x1="316" y1="538" x2="544" y2="538" stroke="#ececec"/>
+<text x="324" y="551" fill="#111" font-family="Arial,sans-serif" font-size="10.5">min_order</text>
+<text x="538" y="551" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">DECIMAL</text>
+<line x1="316" y1="559" x2="544" y2="559" stroke="#ececec"/>
+<text x="324" y="572" fill="#111" font-family="Arial,sans-serif" font-size="10.5">quantity_available</text>
+<text x="538" y="572" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">DECIMAL</text>
+<rect x="316" y="580" width="228" height="21" fill="#fafafa"/>
+<line x1="316" y1="580" x2="544" y2="580" stroke="#ececec"/>
+<text x="324" y="593" fill="#111" font-family="Arial,sans-serif" font-size="10.5">quantity_reserved</text>
+<text x="538" y="593" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">DECIMAL</text>
+<line x1="316" y1="601" x2="544" y2="601" stroke="#ececec"/>
+<text x="324" y="614" fill="#111" font-family="Arial,sans-serif" font-size="10.5">starts_at</text>
+<text x="538" y="614" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">DATETIME</text>
+<rect x="316" y="622" width="228" height="21" fill="#fafafa"/>
+<line x1="316" y1="622" x2="544" y2="622" stroke="#ececec"/>
+<text x="324" y="635" fill="#111" font-family="Arial,sans-serif" font-size="10.5">expires_at</text>
+<text x="538" y="635" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">DATETIME</text>
+<line x1="316" y1="643" x2="544" y2="643" stroke="#ececec"/>
+<text x="324" y="656" fill="#111" font-family="Arial,sans-serif" font-size="10.5">status</text>
+<text x="538" y="656" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">ENUM</text>
+<rect x="316" y="664" width="228" height="21" fill="#fafafa"/>
+<line x1="316" y1="664" x2="544" y2="664" stroke="#ececec"/>
+<text x="324" y="677" fill="#111" font-family="Arial,sans-serif" font-size="10.5">created_at</text>
+<text x="538" y="677" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">TIMESTAMP</text>
+</g>
+
+<!-- ═══════════ TABLE RESERVATIONS ═══════════ -->
+<g filter="url(#shadow)">
+<rect x="660" y="380" width="230" height="221" rx="7" fill="white" stroke="#D1D5DB" stroke-width="1.2"/>
+<rect x="660" y="380" width="230" height="32" rx="7" fill="#1E6B47"/>
+<rect x="660" y="400" width="230" height="12" fill="#1E6B47"/>
+<text x="775" y="401" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="12" font-weight="bold">RESERVATIONS</text>
+<rect x="661" y="412" width="228" height="21" fill="#fafafa"/>
+<rect x="668" y="416" width="18" height="13" rx="2" fill="#FEF9C3"/>
+<text x="677" y="426" text-anchor="middle" fill="#92400E" font-family="monospace" font-size="8" font-weight="bold">PK</text>
+<text x="691" y="426" fill="#111" font-family="Arial,sans-serif" font-size="10.5">id</text>
+<text x="883" y="426" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">INT</text>
+<line x1="661" y1="433" x2="889" y2="433" stroke="#ececec"/>
+<rect x="668" y="437" width="18" height="13" rx="2" fill="#DBEAFE"/>
+<text x="677" y="447" text-anchor="middle" fill="#1E40AF" font-family="monospace" font-size="8" font-weight="bold">FK</text>
+<text x="691" y="447" fill="#111" font-family="Arial,sans-serif" font-size="10.5">flash_sale_id</text>
+<text x="883" y="447" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">INT</text>
+<rect x="661" y="454" width="228" height="21" fill="#fafafa"/>
+<line x1="661" y1="454" x2="889" y2="454" stroke="#ececec"/>
+<rect x="668" y="458" width="18" height="13" rx="2" fill="#DBEAFE"/>
+<text x="677" y="468" text-anchor="middle" fill="#1E40AF" font-family="monospace" font-size="8" font-weight="bold">FK</text>
+<text x="691" y="468" fill="#111" font-family="Arial,sans-serif" font-size="10.5">buyer_id</text>
+<text x="883" y="468" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">INT</text>
+<line x1="661" y1="475" x2="889" y2="475" stroke="#ececec"/>
+<text x="669" y="488" fill="#111" font-family="Arial,sans-serif" font-size="10.5">quantity</text>
+<text x="883" y="488" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">DECIMAL</text>
+<rect x="661" y="496" width="228" height="21" fill="#fafafa"/>
+<line x1="661" y1="496" x2="889" y2="496" stroke="#ececec"/>
+<text x="669" y="509" fill="#111" font-family="Arial,sans-serif" font-size="10.5">unit_price</text>
+<text x="883" y="509" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">DECIMAL</text>
+<line x1="661" y1="517" x2="889" y2="517" stroke="#ececec"/>
+<text x="669" y="530" fill="#111" font-family="Arial,sans-serif" font-size="10.5">total_price</text>
+<text x="883" y="530" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">DECIMAL</text>
+<rect x="661" y="538" width="228" height="21" fill="#fafafa"/>
+<line x1="661" y1="538" x2="889" y2="538" stroke="#ececec"/>
+<text x="669" y="551" fill="#111" font-family="Arial,sans-serif" font-size="10.5">status</text>
+<text x="883" y="551" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">ENUM</text>
+<line x1="661" y1="559" x2="889" y2="559" stroke="#ececec"/>
+<text x="669" y="572" fill="#111" font-family="Arial,sans-serif" font-size="10.5">notes</text>
+<text x="883" y="572" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">TEXT</text>
+<rect x="661" y="580" width="228" height="21" fill="#fafafa"/>
+<line x1="661" y1="580" x2="889" y2="580" stroke="#ececec"/>
+<text x="669" y="593" fill="#111" font-family="Arial,sans-serif" font-size="10.5">created_at</text>
+<text x="883" y="593" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">TIMESTAMP</text>
+</g>
+
+<!-- ═══════════ TABLE ADMIN_ROLES ═══════════ -->
+<g filter="url(#shadow)">
+<rect x="960" y="45" width="230" height="74" rx="7" fill="white" stroke="#D1D5DB" stroke-width="1.2"/>
+<rect x="960" y="45" width="230" height="32" rx="7" fill="#8B1A2F"/>
+<rect x="960" y="65" width="230" height="12" fill="#8B1A2F"/>
+<text x="1075" y="66" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="12" font-weight="bold">ADMIN_ROLES</text>
+<rect x="961" y="77" width="228" height="21" fill="#fafafa"/>
+<rect x="968" y="81" width="18" height="13" rx="2" fill="#FEF9C3"/>
+<text x="977" y="91" text-anchor="middle" fill="#92400E" font-family="monospace" font-size="8" font-weight="bold">PK</text>
+<text x="991" y="91" fill="#111" font-family="Arial,sans-serif" font-size="10.5">id</text>
+<text x="1183" y="91" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">INT</text>
+<line x1="961" y1="98" x2="1189" y2="98" stroke="#ececec"/>
+<text x="969" y="111" fill="#111" font-family="Arial,sans-serif" font-size="10.5">name</text>
+<text x="1183" y="111" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">VARCHAR</text>
+</g>
+
+<!-- ═══════════ TABLE ADMIN_PERMISSIONS ═══════════ -->
+<g filter="url(#shadow)">
+<rect x="1240" y="45" width="230" height="95" rx="7" fill="white" stroke="#D1D5DB" stroke-width="1.2"/>
+<rect x="1240" y="45" width="230" height="32" rx="7" fill="#8B1A2F"/>
+<rect x="1240" y="65" width="230" height="12" fill="#8B1A2F"/>
+<text x="1355" y="66" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="12" font-weight="bold">ADMIN_PERMISSIONS</text>
+<rect x="1241" y="77" width="228" height="21" fill="#fafafa"/>
+<rect x="1248" y="81" width="18" height="13" rx="2" fill="#FEF9C3"/>
+<text x="1257" y="91" text-anchor="middle" fill="#92400E" font-family="monospace" font-size="8" font-weight="bold">PK</text>
+<text x="1271" y="91" fill="#111" font-family="Arial,sans-serif" font-size="10.5">id</text>
+<text x="1463" y="91" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">INT</text>
+<line x1="1241" y1="98" x2="1469" y2="98" stroke="#ececec"/>
+<rect x="1248" y="102" width="18" height="13" rx="2" fill="#DBEAFE"/>
+<text x="1257" y="112" text-anchor="middle" fill="#1E40AF" font-family="monospace" font-size="8" font-weight="bold">FK</text>
+<text x="1271" y="112" fill="#111" font-family="Arial,sans-serif" font-size="10.5">role_id</text>
+<text x="1463" y="112" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">INT</text>
+<rect x="1241" y="119" width="228" height="21" fill="#fafafa"/>
+<line x1="1241" y1="119" x2="1469" y2="119" stroke="#ececec"/>
+<text x="1249" y="132" fill="#111" font-family="Arial,sans-serif" font-size="10.5">permission</text>
+<text x="1463" y="132" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">VARCHAR</text>
+</g>
+
+<!-- ═══════════ TABLE ADMIN_USERS ═══════════ -->
+<g filter="url(#shadow)">
+<rect x="960" y="220" width="230" height="137" rx="7" fill="white" stroke="#D1D5DB" stroke-width="1.2"/>
+<rect x="960" y="220" width="230" height="32" rx="7" fill="#8B1A2F"/>
+<rect x="960" y="240" width="230" height="12" fill="#8B1A2F"/>
+<text x="1075" y="241" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="12" font-weight="bold">ADMIN_USERS</text>
+<rect x="961" y="252" width="228" height="21" fill="#fafafa"/>
+<rect x="968" y="256" width="18" height="13" rx="2" fill="#FEF9C3"/>
+<text x="977" y="266" text-anchor="middle" fill="#92400E" font-family="monospace" font-size="8" font-weight="bold">PK</text>
+<text x="991" y="266" fill="#111" font-family="Arial,sans-serif" font-size="10.5">id</text>
+<text x="1183" y="266" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">INT</text>
+<line x1="961" y1="273" x2="1189" y2="273" stroke="#ececec"/>
+<rect x="968" y="277" width="18" height="13" rx="2" fill="#DBEAFE"/>
+<text x="977" y="287" text-anchor="middle" fill="#1E40AF" font-family="monospace" font-size="8" font-weight="bold">FK</text>
+<text x="991" y="287" fill="#111" font-family="Arial,sans-serif" font-size="10.5">role_id</text>
+<text x="1183" y="287" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">INT</text>
+<rect x="961" y="294" width="228" height="21" fill="#fafafa"/>
+<line x1="961" y1="294" x2="1189" y2="294" stroke="#ececec"/>
+<text x="969" y="307" fill="#111" font-family="Arial,sans-serif" font-size="10.5">username</text>
+<text x="1183" y="307" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">VARCHAR</text>
+<line x1="961" y1="315" x2="1189" y2="315" stroke="#ececec"/>
+<text x="969" y="328" fill="#111" font-family="Arial,sans-serif" font-size="10.5">password</text>
+<text x="1183" y="328" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">VARCHAR</text>
+<rect x="961" y="336" width="228" height="21" fill="#fafafa"/>
+<line x1="961" y1="336" x2="1189" y2="336" stroke="#ececec"/>
+<text x="969" y="349" fill="#111" font-family="Arial,sans-serif" font-size="10.5">created_at</text>
+<text x="1183" y="349" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">TIMESTAMP</text>
+</g>
+
+<!-- ═══════════ TABLE ADMIN_AUDIT_LOG ═══════════ -->
+<g filter="url(#shadow)">
+<rect x="1240" y="220" width="230" height="158" rx="7" fill="white" stroke="#D1D5DB" stroke-width="1.2"/>
+<rect x="1240" y="220" width="230" height="32" rx="7" fill="#8B1A2F"/>
+<rect x="1240" y="240" width="230" height="12" fill="#8B1A2F"/>
+<text x="1355" y="241" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="12" font-weight="bold">ADMIN_AUDIT_LOG</text>
+<rect x="1241" y="252" width="228" height="21" fill="#fafafa"/>
+<rect x="1248" y="256" width="18" height="13" rx="2" fill="#FEF9C3"/>
+<text x="1257" y="266" text-anchor="middle" fill="#92400E" font-family="monospace" font-size="8" font-weight="bold">PK</text>
+<text x="1271" y="266" fill="#111" font-family="Arial,sans-serif" font-size="10.5">id</text>
+<text x="1463" y="266" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">INT</text>
+<line x1="1241" y1="273" x2="1469" y2="273" stroke="#ececec"/>
+<rect x="1248" y="277" width="18" height="13" rx="2" fill="#DBEAFE"/>
+<text x="1257" y="287" text-anchor="middle" fill="#1E40AF" font-family="monospace" font-size="8" font-weight="bold">FK</text>
+<text x="1271" y="287" fill="#111" font-family="Arial,sans-serif" font-size="10.5">admin_id</text>
+<text x="1463" y="287" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">INT</text>
+<rect x="1241" y="294" width="228" height="21" fill="#fafafa"/>
+<line x1="1241" y1="294" x2="1469" y2="294" stroke="#ececec"/>
+<text x="1249" y="307" fill="#111" font-family="Arial,sans-serif" font-size="10.5">action_type</text>
+<text x="1463" y="307" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">VARCHAR</text>
+<line x1="1241" y1="315" x2="1469" y2="315" stroke="#ececec"/>
+<text x="1249" y="328" fill="#111" font-family="Arial,sans-serif" font-size="10.5">resource</text>
+<text x="1463" y="328" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">VARCHAR</text>
+<rect x="1241" y="336" width="228" height="21" fill="#fafafa"/>
+<line x1="1241" y1="336" x2="1469" y2="336" stroke="#ececec"/>
+<text x="1249" y="349" fill="#111" font-family="Arial,sans-serif" font-size="10.5">description</text>
+<text x="1463" y="349" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">TEXT</text>
+<line x1="1241" y1="357" x2="1469" y2="357" stroke="#ececec"/>
+<text x="1249" y="370" fill="#111" font-family="Arial,sans-serif" font-size="10.5">created_at</text>
+<text x="1463" y="370" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">TIMESTAMP</text>
+</g>
+
+<!-- ═══════════ TABLE APP_SETTINGS ═══════════ -->
+<g filter="url(#shadow)">
+<rect x="960" y="490" width="230" height="95" rx="7" fill="white" stroke="#D1D5DB" stroke-width="1.2"/>
+<rect x="960" y="490" width="230" height="32" rx="7" fill="#555"/>
+<rect x="960" y="510" width="230" height="12" fill="#555"/>
+<text x="1075" y="511" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="12" font-weight="bold">APP_SETTINGS</text>
+<rect x="961" y="522" width="228" height="21" fill="#fafafa"/>
+<rect x="968" y="526" width="18" height="13" rx="2" fill="#FEF9C3"/>
+<text x="977" y="536" text-anchor="middle" fill="#92400E" font-family="monospace" font-size="8" font-weight="bold">PK</text>
+<text x="991" y="536" fill="#111" font-family="Arial,sans-serif" font-size="10.5">id</text>
+<text x="1183" y="536" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">INT</text>
+<line x1="961" y1="543" x2="1189" y2="543" stroke="#ececec"/>
+<rect x="968" y="547" width="18" height="13" rx="2" fill="#F3E8FF"/>
+<text x="977" y="557" text-anchor="middle" fill="#6B21A8" font-family="monospace" font-size="8" font-weight="bold">UQ</text>
+<text x="991" y="557" fill="#111" font-family="Arial,sans-serif" font-size="10.5">key</text>
+<text x="1183" y="557" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">VARCHAR</text>
+<rect x="961" y="564" width="228" height="21" fill="#fafafa"/>
+<line x1="961" y1="564" x2="1189" y2="564" stroke="#ececec"/>
+<text x="969" y="577" fill="#111" font-family="Arial,sans-serif" font-size="10.5">value</text>
+<text x="1183" y="577" text-anchor="end" fill="#bbb" font-family="monospace" font-size="9">TEXT</text>
+</g>
+
+<!-- ═══════════ LÉGENDE ═══════════ -->
+<rect x="22" y="668" width="230" height="80" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1.2"/>
+<text x="32" y="685" fill="#333" font-family="Arial,sans-serif" font-size="11" font-weight="bold">Légende</text>
+<rect x="32" y="693" width="18" height="13" rx="2" fill="#FEF9C3"/>
+<text x="41" y="703" text-anchor="middle" fill="#92400E" font-family="monospace" font-size="8" font-weight="bold">PK</text>
+<text x="56" y="703" fill="#444" font-family="Arial,sans-serif" font-size="10">Clé primaire</text>
+<rect x="32" y="710" width="18" height="13" rx="2" fill="#DBEAFE"/>
+<text x="41" y="720" text-anchor="middle" fill="#1E40AF" font-family="monospace" font-size="8" font-weight="bold">FK</text>
+<text x="56" y="720" fill="#444" font-family="Arial,sans-serif" font-size="10">Clé étrangère</text>
+<rect x="32" y="727" width="18" height="13" rx="2" fill="#F3E8FF"/>
+<text x="41" y="737" text-anchor="middle" fill="#6B21A8" font-family="monospace" font-size="8" font-weight="bold">UQ</text>
+<text x="56" y="737" fill="#444" font-family="Arial,sans-serif" font-size="10">Valeur unique</text>
+<line x1="140" y1="703" x2="170" y2="703" stroke="#27ae60" stroke-width="1.8" stroke-dasharray="5,3"/>
+<text x="176" y="706" fill="#444" font-family="Arial,sans-serif" font-size="10">Relation FK</text>
+
+</svg>
